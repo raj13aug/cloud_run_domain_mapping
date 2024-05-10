@@ -34,9 +34,9 @@ resource "google_cloud_run_domain_mapping" "default" {
   }
 
   depends_on = [
-    # google_project_service.cloud_run_api,
-    # google_dns_record_set.api_invy_app_com,
-    # google_cloud_run_service_iam_policy.noauth,
+    google_project_service.cloud_run_api,
+    google_dns_record_set.api_invy_app_com,
+    google_cloud_run_service_iam_policy.noauth,
     time_sleep.wait_30_seconds
   ]
 
