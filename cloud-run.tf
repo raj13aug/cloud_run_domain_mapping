@@ -8,6 +8,12 @@ resource "google_cloud_run_v2_service" "cloud_run_teraform" {
   ingress  = var.cloudrun_ingress
   project  = var.project_id
 
+  traffic {
+    type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+    percent = 100
+  }
+
+
   template {
     containers {
       image = var.cloudrun_image

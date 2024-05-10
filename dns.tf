@@ -36,6 +36,7 @@ resource "google_cloud_run_domain_mapping" "default" {
   }
 
   spec {
-    route_name = google_cloud_run_v2_service.cloud_run_teraform.name
+    force_override = true
+    route_name     = google_cloud_run_v2_service.cloud_run_teraform.name
   }
 }
