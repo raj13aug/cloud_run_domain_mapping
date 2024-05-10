@@ -23,8 +23,20 @@ resource "google_cloud_run_v2_service" "cloud_run_teraform" {
           memory = "1024Mi"
         }
       }
+      startup_probe {
+        initial_delay_seconds = 2
+        timeout_seconds       = 60
+        period_seconds        = 5
+
+        tcp_socket {
+          port = 8080
+        }
+      }
+
     }
   }
+
+
   depends_on = [
     google_project_service.cloud_run_api
   ]
